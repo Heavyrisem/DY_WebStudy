@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>숫자 카운터</title>
+    <script>
+        function Up() {
+            var number = document.getElementById("Number"); // id가 "Number"인 태그 가져와서 number 변수에 넣기
+            number.innerHTML = parseInt(number.innerHTML) + 1; // 가져온 태그 안의 텍스트를 변경
+            // parseInt(a)는 a를 정수 형태로 변환 
+        }
+        function Down() {
+            // ...
+        }
+
+        function Reset() {
+            // ...
+        }
+
+        function ChangeColor(n) { // 다한사람만
+            var colors = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+            if (n > colors.length) n = 0;
+            
+            setTimeout(function() {
+                document.body.style.color = colors[n];
+                ChangeColor(++n);
+            }, 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="Number">
+        0
+    </div>
+
+    <input type="button" onclick="Up()" value="+">
+    <input type="button" onclick="Down()" value="-"><br>
+    <input type="button" onclick="Reset()" value="초기화"><br>
+    <input type="button" onclick="ChangeColor(0)" value="색 바꾸기">
+</body>
+
+</html>
